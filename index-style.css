@@ -1,0 +1,33 @@
+a:hover {
+    text-decoration: none;
+}
+a:visited {
+    color: rgb(255, 180, 220);
+}
+a:link {
+    color: rgb(251, 120, 201);
+}
+h1 {
+	color: white;
+	text-shadow: 1px 0 10px rgb(0, 165, 180);
+}
+h3 {
+    color: rgb(37, 203, 203);
+    
+	
+}
+h2 {
+    background: linear-gradient(0.25turn, rgb(139, 218, 255),white);
+    color: white;
+}
+p.kannsou {
+    background-color: rgb(232, 232, 230);
+}
+div.zenbu > div {
+    border: dashed rgb(209, 192, 255);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+div.zenbu {
+    display: 0.25turn flex;
+}
