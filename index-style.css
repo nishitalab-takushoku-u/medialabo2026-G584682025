@@ -9,7 +9,7 @@ a:link {
 }
 h1 {
 	color: white;
-	text-shadow: 1px 0 10px rgb(0, 165, 180);
+	text-shadow: 10px 0 50px rgb(0, 139, 152);
 }
 h3 {
     color: rgb(37, 203, 203);
@@ -17,7 +17,7 @@ h3 {
 	
 }
 h2 {
-    background: linear-gradient(0.25turn, rgb(139, 218, 255),white);
+    background: linear-gradient(0.25turn, rgb(51, 146, 206),white);
     color: white;
 }
 p.kannsou {
