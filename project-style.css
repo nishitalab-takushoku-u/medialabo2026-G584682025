@@ -1,9 +1,11 @@
-div {
-    display: 0.25turn flex;
-    border: solid rgb(148, 148, 148);
+div.zenbu {
+    display: flex;
     padding-left: 10px;
     padding-right: 10px;
+    width: 100%;
 }
-div.zenbu {
+div.zenbu > div {
     flex: 1;
+    border: solid rgb(148, 148, 148);
+    padding: 10px;
 }
