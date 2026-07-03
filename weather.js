@@ -15,7 +15,37 @@ function print(data) {
 
 // 課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
+  let i = document.createElement('ul');
+  let l = document.createElement('li');
+  l.textContent = "都市名: "+data.name;
+  i.insertAdjacentElement('beforeend', l);
+  l = document.createElement('li');
+  l.textContent = "経度: "+data.coord.lon;
+  i.insertAdjacentElement('beforeend', l);
+  l = document.createElement('li');
+  l.textContent = "緯度: "+data.coord.lat;
+  i.insertAdjacentElement('beforeend', l);
+  l = document.createElement('li');
+  l.textContent = '天気: '+data.weather[0].description+'('+data.weather[0].main+')';
+  i.insertAdjacentElement('beforeend', l);
+  l = document.createElement('li');
+  l.textContent = '最低気温: '+data.main.temp_min;
+  i.insertAdjacentElement('beforeend', l);
+  l = document.createElement('li');
+  l.textContent = '最高気温: '+data.main.temp_max;
+  i.insertAdjacentElement('beforeend', l);
+  l = document.createElement('li');
+  l.textContent = '湿度: '+data.main.humidity;
+  i.insertAdjacentElement('beforeend', l);
+  l = document.createElement('li');
+  l.textContent = '風速: '+data.wind.speed;
+  i.insertAdjacentElement('beforeend', l);
+  l = document.createElement('li');
+  l.textContent = '風向: '+data.wind.deg;
+  i.insertAdjacentElement('beforeend', l);
 
+  let a = document.querySelector('div#result');
+  a.insertAdjacentElement('afterend',i);
 }
 
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
