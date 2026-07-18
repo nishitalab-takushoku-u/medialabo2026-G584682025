@@ -14,72 +14,131 @@ function print(data) {
 }
 
 // 課題5-1 の関数 printDom() はここに記述すること
-let a = document.createElement('body');
+let a = document.querySelector('body');
 let b = document.createElement('p');
 let c=0;
+let d=0;
 b.textContent = '世界の天気（検索結果'+c+'件）';
-a.insertAdjacentElement('beforeend',b);
+
+let v = document.querySelector('div#result')
+v.insertAdjacentElement('beforebegin',b);
+
 let a1 = document.querySelector('p');
-a1.insertAdjacentElement('afterend',a);
 
 function printDom(data) {
-  c = 1;
+  if(d === 1){
+    let y = document.querySelectorAll('#result > div');
+    for(let w of y){
+      w.remove();
+    }
+/*
+    let z = document.querySelectorAll('ul');
+    for(let w of z){
+      w.remove();
+    }
+*/
+  }
+
+  let z = document.createElement('div');
 
   let i = document.createElement('h2');
-  let l = document.createElement('h2');
+  let l = document.createElement('h3');
   l.textContent = data.name;
   i.insertAdjacentElement('beforeend', l);
+  z.insertAdjacentElement('beforeend',i);
+
+  /*
   l = document.createElement('p');
   a1 = document.querySelector('p');
   a1.insertAdjacentElement('afterend',i);
+  */
+
+  //z.insertAdjacentElement('beforeend',i);
+  let a2 = document.querySelector('div#result');
+  a2.insertAdjacentElement('beforeend',z);
 
   b.textContent = '世界の天気（検索結果'+c+'件）⤵︎';
-  a.insertAdjacentElement('beforeend',b);
-  a1 = document.querySelector('p');
-  a1.insertAdjacentElement('afterend',a);
+  //let a3 = document.querySelector('div#result');
+  //a3.insertAdjacentElement('beforeend',b);
+  //a1 = document.querySelector('p');
 
   i = document.createElement('ul');
+
+  l = document.createElement('li');
   l.textContent = "経度: "+data.coord.lon;
   i.insertAdjacentElement('beforeend', l);
-  l = document.createElement('p');
+
+  l = document.createElement('li');
   l.textContent = "緯度: "+data.coord.lat;
   i.insertAdjacentElement('beforeend', l);
-  l = document.createElement('p');
+
+  l = document.createElement('li');
   l.textContent = '天気: '+data.weather[0].description+'('+data.weather[0].main+')';
   i.insertAdjacentElement('beforeend', l);
-  l = document.createElement('p');
+
+  l = document.createElement('li');
   l.textContent = '最低気温: '+data.main.temp_min;
   i.insertAdjacentElement('beforeend', l);
-  l = document.createElement('p');
+
+  l = document.createElement('li');
   l.textContent = '最高気温: '+data.main.temp_max;
   i.insertAdjacentElement('beforeend', l);
-  l = document.createElement('p');
+
+  l = document.createElement('li');
   l.textContent = '湿度: '+data.main.humidity;
   i.insertAdjacentElement('beforeend', l);
-  l = document.createElement('p');
+
+  l = document.createElement('li');
   l.textContent = '風速: '+data.wind.speed;
   i.insertAdjacentElement('beforeend', l);
-  l = document.createElement('p');
+
+  l = document.createElement('li');
   l.textContent = '風向: '+data.wind.deg;
   i.insertAdjacentElement('beforeend', l);
 
-  let a2 = document.querySelector('div#result');
-  a2.insertAdjacentElement('afterend',i);
+  //a2 = document.querySelector('div#result');
+  //a2.insertAdjacentElement('beforeend',i);
+  z.insertAdjacentElement('beforeend',i);
+
 }
+
 
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
 
+let x = document.querySelector('#sendRequest');
+x.addEventListener('click', sendRequest);
 
 
 
 // 課題6-1 のイベントハンドラ sendRequest() の定義
 function sendRequest() {
-
+  c = 0;
+  d = 0;
+  let s = document.querySelectorAll('input[name="city"]'); 
+  for(let r of s){
+    if(r.checked){
+      c = c+1;
+      let id = Number(r.id); 
+      let url = 'https://www.nishita-lab.org/web-contents/jsons/openweather/'+ id +'.json';
+      axios.get(url)
+        .then(showResult)
+        .catch(showError)
+        .then(finish)
+    }
+  }
 }
 
 // 課題6-1: 通信が成功した時の処理は以下に記述
 function showResult(resp) {
+  let data = resp.data;
 
+  if(typeof data === 'string'){
+    data = JSON.parse(data);
+  }
+
+  d = d+1; 
+
+  printDom(data);
 }
 
 // 課題6-1: 通信エラーが発生した時の処理
@@ -91,11 +150,11 @@ function showError(err) {
 function finish() {
     console.log('Ajax 通信が終わりました');
 }
-
 ////////////////////////////////////////
 // 以下はグルメのデータサンプル
 // 注意: 第5回までは以下を変更しないこと！
 // 注意2: 課題6-1 で以下をすべて削除すること
+/*
 let data = {
   "coord": {
     "lon": 116.3972,
@@ -142,4 +201,5 @@ let data = {
   "name": "北京市",
   "cod": 200
 };
+*/
 

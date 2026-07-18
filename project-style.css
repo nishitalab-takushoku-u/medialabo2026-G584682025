@@ -1,11 +1,29 @@
-div.zenbu {
+#result {
     display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+#result > div {
+    /*
+    border: 5px solid #2e5fa3;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: rgb(154, 205, 223);
+    min-width: 200px;
+*/
+
+    border: dashed rgb(151, 132, 203);
     padding-left: 10px;
     padding-right: 10px;
-    width: 100%;
+    background-color: rgb(197, 239, 255);
+    min-width: 300px;
 }
-div.zenbu > div {
+/*
+div.id > div {
     flex: 1;
     border: solid rgb(148, 148, 148);
     padding: 10px;
 }
+*/
