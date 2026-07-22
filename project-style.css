@@ -1,9 +1,17 @@
 #result {
+
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
     align-items: flex-start;
+
 }
+
+h1{
+    color: rgb(25, 67, 126);
+}
+
+
 
 #result > div {
     /*
@@ -14,16 +22,20 @@
     min-width: 200px;
 */
 
-    border: dashed rgb(151, 132, 203);
+    border: dashed rgb(123, 118, 187);
     padding-left: 10px;
     padding-right: 10px;
-    background-color: rgb(197, 239, 255);
+    background-color: rgb(185, 207, 255);
     min-width: 300px;
 }
-/*
-div.id > div {
-    flex: 1;
-    border: solid rgb(148, 148, 148);
-    padding: 10px;
+html{
+    background-color: rgb(212, 245, 251);
 }
-*/
+div {
+    margin-bottom: 5px;
+}
+h2 {
+    color: rgb(10, 59, 172);
+}
+
+    
